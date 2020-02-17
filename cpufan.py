@@ -7,7 +7,6 @@
 
 #Jyri Valta 2019
 
-
 #Import modules os and sys for using with operating system functions:
 
 import os
