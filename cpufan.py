@@ -43,13 +43,13 @@ while True:
 #that contains the cpu temperature:
     with open('/etc/armbianmonitor/datasources/soctemp', 'r') as txt:
     cputemp = (txt.read())	#And read it into a variable called cputemp.
-    if int(cputemp) > limit:	#If the variable is greater than the treshold:
-        gpio.output(led, 1)	#Light the red status led
-        gpio.output(fan, 1)	#and turn on the fan.
-        sleep(30)		#After that wait for 30 seconds.
-        continue		#Return to the start of the while loop.
-    else:			#If the variable is equal to or smaller than treshold
-        gpio.output(led, 0)	#turn red led off
-        gpio.output(fan, 0)	#and the fan.
-        sleep(2)		#Wait for 2 seconds
+        if int(cputemp) > limit:	#If the variable is greater than the treshold:
+            gpio.output(led, 1)	#Light the red status led
+            gpio.output(fan, 1)	#and turn on the fan.
+            sleep(30)		#After that wait for 30 seconds.
+            continue		#Return to the start of the while loop.
+        else:			#If the variable is equal to or smaller than treshold
+            gpio.output(led, 0)	#turn red led off
+            gpio.output(fan, 0)	#and the fan.
+            sleep(2)		#Wait for 2 seconds
         continue		#and return to the start of the while loop.
