@@ -25,6 +25,11 @@ from pyA20.gpio import gpio
 
 from pyA20.gpio import port
 
+#First check that we are running the program with root privileges:
+
+if not os.getegid() == 0:
+    sys.exit('Script must be run as root')
+
 #Set the constants used by the program:
 
 led = port.STATUS_LED	#Set STATUS_LED as port led.
