@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #Python script for controlling a cpu fan on an Orange Pi Zero Plus.
 #The program uses os- and sys-libraries and parts of time and pyA20 libraries.
@@ -41,7 +41,7 @@ while True:
 
 #Open file /etc/armbianmonitor/datasources/soctemp
 #that contains the cpu temperature:
-    with open('/etc/armbianmonitor/datasources/soctemp', 'r') as txt
+    with open('/etc/armbianmonitor/datasources/soctemp', 'r') as txt:
     cputemp = (txt.read())	#And read it into a variable called cputemp.
     if int(cputemp) > limit:	#If the variable is greater than the treshold:
         gpio.output(led, 1)	#Light the red status led
