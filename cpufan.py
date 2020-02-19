@@ -34,7 +34,7 @@ if not os.getegid() == 0:
 
 led = port.STATUS_LED	#Set STATUS_LED as port led.
 fan = port.PA7	#Set PA7 as the fan port.
-limit = 45000	#Set tempreture treshold to 45 degrees celcius.
+limit = 45.0	#Set tempreture treshold to 45 degrees celcius.
 
 gpio.init()	#Initialize the gpio pins.
 gpio.setcfg(led, gpio.OUTPUT)	#Set the led port as output.
@@ -47,7 +47,7 @@ while True:
 #Open file /etc/armbianmonitor/datasources/soctemp
 #that contains the cpu temperature:
     with open('/etc/armbianmonitor/datasources/soctemp', 'r') as txt:
-        cputemp = (txt.read())	#And read it into a variable called cputemp.
+        cputemp = float(txt.read())	#And read it into a variable called cputemp.
         if int(cputemp) > limit:	#If the variable is greater than the treshold:
             gpio.output(led, 1)	#Light the red status led
             gpio.output(fan, 1)	#and turn on the fan.
