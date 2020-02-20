@@ -48,7 +48,7 @@ while True:
 #that contains the cpu temperature:
     with open('/etc/armbianmonitor/datasources/soctemp', 'r') as txt:
         cputemp = int(txt.read())	#And read it into a variable called cputemp.
-        cputemp = float(cputemp/1000)
+        cputemp = float("{0:.1f}".format(cputemp/1000))
         if cputemp > limit:	#If the variable is greater than the treshold:
             print(str(cputemp) + " " + str(limit)) #For debugging only!!
             gpio.output(led, 1)	#Light the red status led
