@@ -53,7 +53,7 @@ while True:
         if float(cputemp) > float(limit): #If the variable is greater than the treshold:
             gpio.output(led, 1)	#Light the red status led
             gpio.output(fan, 1)	#and turn on the fan.
-            sleep(30)		#After that wait for 30 seconds.
+            sleep(10)		#After that wait for 10 seconds.
             continue		#Return to the start of the while loop.
         else:			#If the variable is equal to or smaller than treshold
             gpio.output(led, 0)	#turn red led off
