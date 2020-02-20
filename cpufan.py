@@ -49,8 +49,8 @@ while True:
     with open('/etc/armbianmonitor/datasources/soctemp', 'r') as txt:
         cputemp = int(txt.read())	#And read it into a variable called cputemp.
         cputemp = float("{0:.1f}".format(cputemp/1000)) #Which is converted to float with 1 decimal.
-        if cputemp > limit:	#If the variable is greater than the treshold:
 #            print(str(cputemp) + " " + str(limit)) #For debugging only!!
+        if float(cputemp) > float(limit): #If the variable is greater than the treshold:
             gpio.output(led, 1)	#Light the red status led
             gpio.output(fan, 1)	#and turn on the fan.
             sleep(30)		#After that wait for 30 seconds.
